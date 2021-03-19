@@ -42,4 +42,14 @@ while (i < 3) {
 //     personalMovieDB.movies[a]=b;
 // }
 
+if (personalMovieDB.count < 10) {
+    alert("Low number of films has been watched");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    alert("Вы классический зритель");    
+} else if (personalMovieDB.count > 30) {
+    alert("You are filmlover!");     
+} else {
+    alert("Error happened");        
+}
+
 console.log(personalMovieDB.movies);
