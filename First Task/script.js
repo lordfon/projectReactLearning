@@ -1,6 +1,16 @@
 "use stict";
 
-const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+    
+    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+    }
+}
+
+start();
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -11,36 +21,24 @@ const personalMovieDB = {
 
 };
 
-let i = 0;
+function rememberMyFilms() {
+    let i = 0;
+    while (i < 3) {
+        let a = prompt("Один из последних просмотренных фильмов?"),
+            b = prompt("На сколько оцените его?");
+        if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+            personalMovieDB.movies[a]=b;
+            console.log("well done!");        
+        } else {
+            console.log("error");
+            i--;
+        }
 
-// do {
-//     const a = prompt("Один из последних просмотренных фильмов?"),
-//         b = prompt("На сколько оцените его?");
-//     personalMovieDB.movies[a]=b;
-//     i++;
-// } while (i < 2);
-
-// i = 0;
-
-while (i < 3) {
-    let a = prompt("Один из последних просмотренных фильмов?"),
-        b = prompt("На сколько оцените его?");
-    if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-        personalMovieDB.movies[a]=b;
-        console.log("well done!");        
-    } else {
-        console.log("error");
-        i--;
+        i++;
     }
-
-    i++;
 }
 
-// for (let j = 0; j < 3; j++ ) {
-//     let a = prompt("Один из последних просмотренных фильмов?"),
-//         b = prompt("На сколько оцените его?");
-//     personalMovieDB.movies[a]=b;
-// }
+rememberMyFilms();
 
 if (personalMovieDB.count < 10) {
     alert("Low number of films has been watched");
@@ -53,3 +51,5 @@ if (personalMovieDB.count < 10) {
 }
 
 console.log(personalMovieDB.movies);
+
+console.log("5"+5);
